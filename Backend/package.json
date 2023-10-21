@@ -9,6 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "clarifai-nodejs-grpc": "^9.9.2"
+    "axios": "^1.5.1",
+    "clarifai-nodejs-grpc": "^9.9.2",
+    "form-data": "^4.0.0",
+    "fs": "^0.0.1-security",
+    "https": "^1.0.0",
+    "node-fetch": "^3.3.2"
   }
 }
