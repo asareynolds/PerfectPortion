@@ -36,13 +36,12 @@ app.post("/post/image", upload.single('image'), async(req, res) => {
         res.status(200).end(`{"result": "success","imageId": "${imageID}"}`);
     });
 });
-app.post('/get/nutrients', async(req, res) => {
-    //const { user_username, user_email, user_pass, user_fname, user_lname } = req.body
+//Takes in imageID, returns nutritional information
+app.get('/get/nutrients', async(req, res) => {
+    const imageID = req.query.imageID
     res.setHeader('Content-Type', 'application/json');
-    var createUserResult = JSON.parse(await user.create(user_username, user_email, user_pass, user_fname, user_lname))
-    if (createUserResult.result == "error") return res.end(`{"result": "error","type": "${createUserResult.type}"}`);
-    email.sendVerification(createUserResult.uuid)
-    var createTokenResult = JSON.parse(await token.generate("standard", createUserResult.uuid, client_id, client_ip))
-    if (createTokenResult.result == "error") return res.end(`{"result": "error","type": "${createTokenResult.type}"}`);
-    res.end(`{"result": "success","uuid": "${createUserResult.uuid}","token": "${createTokenResult.token}"}`);
+    logmeal.getNutrients(imageID).then((nutrients) => {
+        res.status(200).end(nutrients);
+    });
+    //res.end(`{"result": "success","uuid": "${createUserResult.uuid}","token": "${createTokenResult.token}"}`);
 });
