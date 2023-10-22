@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit a Meal</title>
+    <title>Edit a Meal (demo)</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -75,7 +75,7 @@
 <body>
 
 <div class="form-container">
-    <h2>Edit a Meal</h2>
+    <h2>Edit a Meal(demo)</h2>
     <form action="/update_meal" method="post">
         <!-- Usually, we'd pull current meal details from the database. Here's a placeholder: -->
         <label for="meal-name">Meal Name:</label>
@@ -91,7 +91,22 @@
         <input type="number" id="carbs" name="carbs" value="50">
 
         <!-- ... add other fields as needed ... -->
+    </form>
+</div>
+<script>
+    function updateButton() {
+        var button = document.querySelector('.button[type="submit"]');
+        button.textContent = "Updated!";
+        button.disabled = true;
+    }
+</script>
+</head>
 
+<body>
+
+<div class="form-container">
+    <form action="/update_meal" method="post" onsubmit="updateButton(); return false;">
+        <!-- ... (your existing form) ... -->
         <button class="button" type="submit">Update</button>
         <div class="spacer"></div>
         <a href="WebApp.html" class="button">Back to Homepage</a>
