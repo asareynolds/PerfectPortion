@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log a Meal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .app-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button, input[type="submit"] {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        .button {
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app-container">
+    <h1>Log a Meal</h1>
+
+    <!-- Video element to show webcam feed -->
+    <video id="webcam" width="640" height="480" autoplay></video>
+
+    <form action="/submit_meal" method="post">
+        <!-- Placeholder for capturing image data -->
+        <input type="hidden" id="capturedImage" name="capturedImage">
+
+        <button type="button" onclick="captureImage()">Capture Image</button>
+        <!-- Input to select image from computer -->
+        <input type="file" id="fileInput" name="uploadedImage">
+        <input type="submit" value="Submit">
+    </form>
+
+    <a href="WebApp.html" class="button">Back to Homepage</a>
+</div>
+
+<script>
+    // Access the webcam stream
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            document.getElementById('webcam').srcObject = stream;
+        }).catch(function(error) {
+            console.error("Error accessing webcam:", error);
+        });
+    }
+
+    function captureImage() {
+        const videoElem = document.getElementById('webcam');
+        const canvas = document.createElement('canvas');
+        canvas.width = videoElem.videoWidth;
+        canvas.height = videoElem.videoHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(videoElem, 0, 0, videoElem.videoWidth, videoElem.videoHeight);
+        const imageDataUrl = canvas.toDataURL('image/png');
+        document.getElementById('capturedImage').value = imageDataUrl;
+    }
+</script>
+
+</body>
+
+</html>

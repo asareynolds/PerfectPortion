@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recently Logged Meals</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        .content-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        td a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            text-decoration: none;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="content-container">
+    <h2>Recently Logged Meals</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Meal Name</th>
+            <th>Calories</th>
+            <th>Protein (g)</th>
+            <th>Carbs (g)</th>
+            <!-- ... add other columns as needed ... -->
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Breakfast</td>
+            <td>500</td>
+            <td>25</td>
+            <td>60</td>
+            <!-- ... add other cell values as needed ... -->
+            <td><a href="editmeal.html">Edit</a></td>
+        </tr>
+        <tr>
+            <td>Lunch</td>
+            <td>600</td>
+            <td>30</td>
+            <td>50</td>
+            <!-- ... add other cell values as needed ... -->
+            <td><a href="editmeal.html">Edit</a></td>
+        </tr>
+        <!-- ... add more rows for other meals ... -->
+        </tbody>
+    </table>
+</div>
+<a href="WebApp.html" class="button">Back to Homepage</a>
+
+</body>
+
+</html>
