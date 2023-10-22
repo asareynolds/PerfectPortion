@@ -17,7 +17,6 @@ const getNutrients = async function(imageID) {
       console.log(error)
       return '{"error": "Failed to obtain nutritional information"}'
     });
-  console.log(nutritionalInfoRaw)
   //let nutritionalInfoRaw = JSON.parse(fs.readFileSync('response.json'));
   const nutritionalInfo = parseNutritionalInfo(nutritionalInfoRaw);
   fs.writeFile('/usr/src/usr_images/' + imageID + '.json', JSON.stringify(nutritionalInfo, null, 2), (error) => {if (error) {return;}});
