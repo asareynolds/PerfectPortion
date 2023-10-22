@@ -26,7 +26,8 @@ struct MealDisplayView: View {
                 .padding()
             
             ForEach(meal.foods, id: \.id) { food in
-                Text("Name: \(food.name)")
+                Text(food.name)
+                    .fontWeight(.heavy)
                 Text("Calories: \(food.calories)")
                 Text("Proteins: \(food.proteins)")
                 Text("Carbs: \(food.carbs)")
