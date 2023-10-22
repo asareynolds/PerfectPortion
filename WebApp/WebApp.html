@@ -6,56 +6,85 @@
     <title>Health Tracking Dashboard</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
+
         .dashboard, .previous-meals {
-            border: 2px solid black;
-            padding: 20px;
+            background-color: white;
+            padding: 30px;
             border-radius: 10px;
-            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
+
         .button {
-            display: block;
+            display: inline-block;
             padding: 10px 20px;
-            margin: 10px 0;
+            margin: 10px;
             border: none;
             border-radius: 5px;
             background-color: #3498db;
             color: white;
-            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            border-radius: 5px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #2980b9;
         }
     </style>
 </head>
 <body>
 
 <div class="dashboard">
-    <center>
     <h2>Dashboard</h2>
     <p>1506 cal / 2602</p>
-    <img src="barchart.png" alt="calories chart" width="200">
+    <img src="barchart.png" alt="calories chart" width="200" style="display: block; margin-left: auto; margin-right: auto;">
     <p>
         120g protein / 150g<br>
         120g carbs / 200g <br>
         20g fat / 50g
-
     </p>
-<!-- This button should link to LogMeal.html -->
-    <td><a href = "LogMeal.html"> <button class="button">Log a meal </a> </td>
-<!-- This button should link to EditMeal.html -->
-    <td><a href = "EditMeal.html"> <button class="button">Edit a meal </a> </td>
-    <!-- This button should link to RecentlyLogged.html -->
-    <td><a href = "RecentlyLogged.html"> <button class="button">Recently logged meals </a> </td>
+
+    <a href="LogMeal.html" class="button">Log a meal</a>
+    <a href="EditMeal.html" class="button">Edit a meal</a>
+    <a href="RecentlyLogged.html" class="button">Recently logged meals</a>
 </div>
 
 <div class="previous-meals">
-    <center>
     <h2>Previous Meals</h2>
-    <p>Lunch: 1006 cal, 26g protein, 66g carbs</p>
+    <h3> Lunch:</h3> <p>1006 cal, 26g protein, 66g carbs</p>
     <a href="https://www.google.com/search?q=calories+in+chicken+breast">Chicken breast</a> (100g): 165 cal, 31g protein, 0g carbs<br>
     <a href="https://www.google.com/search?q=calories+in+rice">Rice</a> (100g): 130 cal, 2.7g protein, 28g carbs<br>
     <a href="https://www.google.com/search?q=calories+in+broccoli">Broccoli</a> (100g): 34 cal, 2.8g protein, 6g carbs<br>
-    <p>Breakfast: 650 cal, 15g sugar</p>
+    <h3> Breakfast:</h3> 650 cal, 15g sugar</p>
     <a href="https://www.google.com/search?q=calories+in+oatmeal">Oatmeal</a> (100g): 68 cal, 1.4g sugar<br>
     <a href="https://www.google.com/search?q=calories+in+banana">Banana</a> (100g): 89 cal, 12g sugar<br>
 </div>
