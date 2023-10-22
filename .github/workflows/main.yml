@@ -13,16 +13,16 @@ jobs:
       uses: appleboy/ssh-action@v0.1.10
       with:
         host: 150.136.46.27
-        username: ubuntu
+        username: tgm
         key: ${{ secrets.KEY }}
         script: |
           echo "${{ steps.extract_branch.outputs.branch }}"
           if [ ${{ steps.extract_branch.outputs.branch }} = "main" ]; then
-            cd /home/ubuntu/rancher-services/perfectportion/api.perfectportion.tech
+            cd /home/tgm/rancher-services/perfectportion/api.perfectportion.tech
           elif [ ${{ steps.extract_branch.outputs.branch }} = "staging" ] ; then
-            cd /home/ubuntu/rancher-services/perfectportion/stagingapi.perfectportion.tech
+            cd /home/tgm/rancher-services/perfectportion/stagingapi.perfectportion.tech
           else
             exit 0
           fi
           echo "$PWD"
-          git pull origin ${{ steps.extract_branch.outputs.branch }} --allow-unrelated-histories
+          //git pull origin ${{ steps.extract_branch.outputs.branch }} --allow-unrelated-histories
