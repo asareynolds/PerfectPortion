@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log a Meal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app-container">
+    <h1>Log a Meal</h1>
+
+    <!-- Video element to show webcam feed -->
+    <video id="webcam" width="640" height="480" autoplay></video>
+
+    <form action="/submit_meal" method="post">
+        <!-- Placeholder for capturing image data -->
+        <input type="hidden" id="capturedImage" name="capturedImage">
+
+        <button type="button" onclick="captureImage()">Capture Image</button>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <a href="WebApp.html" class="button">Back to Homepage</a>
+</div>
+
+<script>
+    // Access the webcam stream
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            document.getElementById('webcam').srcObject = stream;
+        }).catch(function(error) {
+            console.error("Error accessing webcam:", error);
+        });
+    }
+
+    function captureImage() {
+        const videoElem = document.getElementById('webcam');
+        const canvas = document.createElement('canvas');
+        canvas.width = videoElem.videoWidth;
+        canvas.height = videoElem.videoHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(videoElem, 0, 0, videoElem.videoWidth, videoElem.videoHeight);
+        const imageDataUrl = canvas.toDataURL('image/png');
+        document.getElementById('capturedImage').value = imageDataUrl;
+    }
+</script>
+
+</body>
+</html>
