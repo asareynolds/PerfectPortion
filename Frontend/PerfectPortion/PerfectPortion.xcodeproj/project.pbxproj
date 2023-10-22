@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		944076262AE56833004FC291 /* MealLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944076252AE56833004FC291 /* MealLabelView.swift */; };
 		944076282AE56A8F004FC291 /* MealDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944076272AE56A8F004FC291 /* MealDisplayView.swift */; };
+		9440762E2AE592E4004FC291 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440762D2AE592E1004FC291 /* SettingsView.swift */; };
+		944076302AE592F6004FC291 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440762F2AE592F6004FC291 /* OnboardingView.swift */; };
 		948ECCCD2AE4622200A4ADDD /* PerfectPortionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948ECCCC2AE4622200A4ADDD /* PerfectPortionApp.swift */; };
 		948ECCCF2AE4622200A4ADDD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948ECCCE2AE4622200A4ADDD /* HomeView.swift */; };
 		948ECCD12AE4622200A4ADDD /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948ECCD02AE4622200A4ADDD /* Meal.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		944076252AE56833004FC291 /* MealLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealLabelView.swift; sourceTree = "<group>"; };
 		944076272AE56A8F004FC291 /* MealDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDisplayView.swift; sourceTree = "<group>"; };
+		9440762D2AE592E1004FC291 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = PerfectPortion/SettingsView.swift; sourceTree = "<group>"; };
+		9440762F2AE592F6004FC291 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingView.swift; path = PerfectPortion/OnboardingView.swift; sourceTree = "<group>"; };
 		948ECCC92AE4622200A4ADDD /* PerfectPortion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectPortion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948ECCCC2AE4622200A4ADDD /* PerfectPortionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectPortionApp.swift; sourceTree = "<group>"; };
 		948ECCCE2AE4622200A4ADDD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 		948ECCC02AE4622200A4ADDD = {
 			isa = PBXGroup;
 			children = (
+				9440762F2AE592F6004FC291 /* OnboardingView.swift */,
+				9440762D2AE592E1004FC291 /* SettingsView.swift */,
 				948ECCCB2AE4622200A4ADDD /* PerfectPortion */,
 				948ECCCA2AE4622200A4ADDD /* Products */,
 			);
@@ -146,6 +152,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944076302AE592F6004FC291 /* OnboardingView.swift in Sources */,
+				9440762E2AE592E4004FC291 /* SettingsView.swift in Sources */,
 				944076262AE56833004FC291 /* MealLabelView.swift in Sources */,
 				948ECCDD2AE4722B00A4ADDD /* AddMealView.swift in Sources */,
 				948ECCDF2AE474E100A4ADDD /* ImageViewModel.swift in Sources */,

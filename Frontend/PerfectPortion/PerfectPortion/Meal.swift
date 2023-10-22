@@ -28,8 +28,9 @@ final class Meal {
     let totalProteins: Int
     let totalCarbs: Int
     let totalFat: Int
+    let recommendation: String
     
-    init(id: String, imageData: Data, timestamp: Date, foods: [Food]) {
+    init(id: String, imageData: Data, timestamp: Date, foods: [Food], recommendation: String) {
         self.id = id
         self.imageData = imageData
         self.timestamp = timestamp
@@ -46,5 +47,6 @@ final class Meal {
         self.totalProteins = total.proteins
         self.totalCarbs = total.carbs
         self.totalFat = total.fat
+        self.recommendation = recommendation
     }
 }

@@ -34,6 +34,10 @@ struct PerfectPortionApp: App {
                     .tabItem {
                         Label("Add", systemImage: "camera")
                     }
+                SettingsView()
+                    .tabItem {
+                        Label("Settings", systemImage: "gear")
+                    }
             }
         }
     }

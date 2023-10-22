@@ -11,25 +11,30 @@ import SwiftData
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Meal.timestamp, order: .reverse) private var meals: [Meal]
+    @AppStorage("hasOnboarded") private var hasOnboarded: Bool = false
 
     var body: some View {
-        NavigationStack {
-            if meals.isEmpty {
-                ContentUnavailableView("No Meals", systemImage: "takeoutbag.and.cup.and.straw", description: Text("Go add a meal"))
-            }
-            else {
-                List {
-                    ForEach(meals) { item in
-                        NavigationLink {
-                            MealDisplayView(meal: item)
-                        } label: {
-                            MealLabelView(meal: item)
+        if hasOnboarded {
+            NavigationStack {
+                if meals.isEmpty {
+                    ContentUnavailableView("No Meals", systemImage: "takeoutbag.and.cup.and.straw", description: Text("Go add a meal"))
+                }
+                else {
+                    List {
+                        ForEach(meals) { item in
+                            NavigationLink {
+                                MealDisplayView(meal: item)
+                            } label: {
+                                MealLabelView(meal: item)
+                            }
                         }
+                        .onDelete(perform: deleteItems)
                     }
-                    .onDelete(perform: deleteItems)
                 }
             }
-
+        }
+        else {
+            OnboardingView(hasOnboarded: $hasOnboarded)
         }
     }
 
