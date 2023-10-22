@@ -9,7 +9,7 @@ We used Swift UI to develop an Apple iOS application, and integrated this with a
 multi-node Kubernetes cluster, with Oracle Cloud servers in US West and US East to ensure low latency. The backend interfaces with the LogMeal image segmentation machine learning service, which isolates and identifies speciific foods. Nutritional information is parsed, 
 
 ##Challenges and Solutions
-This was the first hackathon for our backend developer - they had to adjust to the 
+This was the first hackathon for our backend developer - they had to adjust to the fast-paced environment of HackPSU.
 
 ##Accessibility
 We followed ADA and WCAG guidelines for accessible interface design through the implementation of proper contrast, a structured content flow, large buttons and readable font, and additional whitespace padding. This helps all users use the app regardless of ability.
