@@ -47,9 +47,9 @@ app.get('/get/nutrients', async(req, res) => {
 });
 //Takes in imageID & nutritional info, returns recommendations
 app.get('/get/recommendation', async(req, res) => {
-    const imageID = req.query.imageID
+    const { imageID,weight,gender,age,height,allergies}  = req.query
     res.setHeader('Content-Type', 'application/json');
-    gpt.getRecommendations(imageID).then((recommendation) => {
+    gpt.getRecommendations(imageID, age, weight, gender,height,allergies).then((recommendation) => {
         res.status(200).end(recommendation);
     });
 });

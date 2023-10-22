@@ -1,3 +1,3 @@
 curl \
-  -F "image=@Images/e051f2c51dd6488585d55281470d84a358ed76ef.jpg" \
+  -F "image=@Images/20231022_120508.jpg" \
   'https://api.perfectportion.tech/post/image'

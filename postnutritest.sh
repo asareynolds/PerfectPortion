@@ -1,1 +1,1 @@
-curl https://api.perfectportion.tech/get/nutrients?imageID=4e81a25997ff1ecdccccd9edb24426b66bec743d
+curl https://api.perfectportion.tech/get/nutrients?imageID=d2da612caa82abb794da63bfe780a3e3915b78eb

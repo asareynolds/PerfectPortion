@@ -3,15 +3,6 @@ const fs = require('fs');
 const FormData = require('form-data');
 
 const getNutrients = async function(imageID) {
-  /*const tokens = require('../tokens.json').tokens;
-  tokens.forEach(async token => {
-    console.log("Using Token: " + token)
-    const imgPath = '/usr/src/usr_images/' + imageID + '.jpg';
-    const imageLMID = await segmentateImage(token, imgPath)
-      .catch(error => {
-      });
-  });*/
-
   var token = getRandomToken();
   console.log("Using Token: " + token)
   const imgPath = '/usr/src/usr_images/' + imageID + '.jpg';
@@ -26,7 +17,6 @@ const getNutrients = async function(imageID) {
       console.log(error)
       return '{"error": "Failed to obtain nutritional information"}'
     });
-  console.log(nutritionalInfoRaw)
   //let nutritionalInfoRaw = JSON.parse(fs.readFileSync('response.json'));
   const nutritionalInfo = parseNutritionalInfo(nutritionalInfoRaw);
   fs.writeFile('/usr/src/usr_images/' + imageID + '.json', JSON.stringify(nutritionalInfo, null, 2), (error) => {if (error) {return;}});
@@ -40,7 +30,9 @@ const parseNutritionalInfo = function(nutritionalInfoJSON) {
   for (let i = 0; i < nutritionalInfoJSON.foodName.length; i++) {
     foodName = nutritionalInfoJSON.foodName[i];
     foodID = nutritionalInfoJSON.ids[i];
-    foodItems[foodID] = {"foodName": foodName, "foodID": foodID, "info": []};
+    if (foodName != "chocolate") {
+      foodItems[foodID] = {"foodName": foodName, "foodID": foodID, "info": []};
+    }
   }
   nutritionalInfoJSON.nutritional_info_per_item.forEach(item => {
     foodItems[item["id"]]["info"] = {
@@ -81,14 +73,12 @@ const segmentateImage = async function(authToken, imgPath) { //TODO: COMPRESS IM
 
     axios.post(url, form, { headers })
       .then(response => {
-        //console.log(response.data);
         console.log(response.data.imageId)
 
         resolve(response.data.imageId);
       })
       .catch(error => {
         console.log("ERROR: " + authToken)
-        //console.error('Error:', error);
         reject(error);
       });
   });
@@ -103,7 +93,6 @@ const getNutritionalInfo = async function(authToken, imageID) {
 
     axios.post(url, JSON.stringify({ imageId: imageID }), { headers: headers })
       .then(response => {
-        console.log(response.data);
         resolve(response.data);
       })
       .catch(error => {
