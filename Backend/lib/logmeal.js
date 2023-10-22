@@ -30,7 +30,9 @@ const parseNutritionalInfo = function(nutritionalInfoJSON) {
   for (let i = 0; i < nutritionalInfoJSON.foodName.length; i++) {
     foodName = nutritionalInfoJSON.foodName[i];
     foodID = nutritionalInfoJSON.ids[i];
-    foodItems[foodID] = {"foodName": foodName, "foodID": foodID, "info": []};
+    if (foodName != "chocolate") {
+      foodItems[foodID] = {"foodName": foodName, "foodID": foodID, "info": []};
+    }
   }
   nutritionalInfoJSON.nutritional_info_per_item.forEach(item => {
     foodItems[item["id"]]["info"] = {
