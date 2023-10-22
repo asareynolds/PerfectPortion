@@ -1,1 +1,1 @@
-curl https://api.perfectportion.tech/get/recommendation?imageID=4e81a25997ff1ecdccccd9edb24426b66bec743d
+curl 'https://api.perfectportion.tech/get/recommendation?imageID=4e81a25997ff1ecdccccd9edb24426b66bec743d&weight=150&height=70&age=20&gender=male'
