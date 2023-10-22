@@ -1,5 +1,6 @@
 # PerfectPortion
-![Perfect Portion More Border-modified](https://github.com/JMS1717/PerfectPortion/assets/43321848/bfa0c314-2d30-422d-97e8-64a801fe5fc7)
+<img src="https://github.com/JMS1717/PerfectPortion/assets/43321848/bfa0c314-2d30-422d-97e8-64a801fe5fc7" width="500">
+
 
 
 
