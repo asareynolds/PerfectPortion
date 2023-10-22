@@ -1,5 +1,5 @@
 ##The Problem
-Current weight tracking apps make it tedious to enter food information and difficult to capture everything. There’s currently no solution for people who want a convenient way to log their food. One study of nearly 1,700 participants found that keeping a food diary can double your weight loss when you're trying to shed unwanted pounds. According to a 2017 survey, only 26 percent of those aged 18 to 29 years regularly use apps to track their diet and nutrition.
+Current weight-tracking apps make it tedious to enter food information and difficult to capture everything. There’s currently no solution for people who want a convenient way to log their food. One study of nearly 1,700 participants found that keeping a food diary can double your weight loss when you're trying to shed unwanted pounds. According to a 2017 survey, only 26 percent of those aged 18 to 29 years regularly use apps to track their diet and nutrition.
 
 ##The Solution
 Perfect Portion is an app that automatically detects what food is present in a picture of a meal, listing key nutritional information and enabling users to make more informed choices about what they eat. A simple
