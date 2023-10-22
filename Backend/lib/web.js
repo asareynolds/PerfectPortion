@@ -5,6 +5,7 @@ const cors = require('cors');
 var crypto = require("crypto");
 const fs = require("fs");
 const logmeal = require('./logmeal.js');
+const gpt = require('./gpt.js')
 
 const app = express();
 app.use(bodyParser.json())
@@ -41,14 +42,14 @@ app.get('/get/nutrients', async(req, res) => {
     const imageID = req.query.imageID
     res.setHeader('Content-Type', 'application/json');
     logmeal.getNutrients(imageID).then((nutrients) => {
-        res.status(200).end(nutrients);
+        res.status(200).end(JSON.stringify(nutrients));
     });
 });
-//Takes in imageID & nutritional info, returns nutritional information
-app.get('/get/nutrients', async(req, res) => {
+//Takes in imageID & nutritional info, returns recommendations
+app.get('/get/recommendation', async(req, res) => {
     const imageID = req.query.imageID
     res.setHeader('Content-Type', 'application/json');
-    logmeal.getNutrients(imageID).then((nutrients) => {
-        res.status(200).end(nutrients);
+    gpt.getRecommendations(imageID).then((recommendation) => {
+        res.status(200).end(recommendation);
     });
 });

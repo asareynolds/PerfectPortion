@@ -16,25 +16,26 @@ const getNutrients = async function(imageID) {
   console.log("Using Token: " + token)
   const imgPath = '/usr/src/usr_images/' + imageID + '.jpg';
   console.log("Using Image: " + imgPath)
-  /*const imageLMID = await segmentateImage(token, imgPath)
+  const imageLMID = await segmentateImage(token, imgPath)
     .catch(error => {
       console.log(error)
       return '{"error": "Failed to segmentate image"}'
-    });*/
-  /*const nutritionalInfoRaw = await getNutritionalInfo(token, imageLMID)
+    });
+  const nutritionalInfoRaw = await getNutritionalInfo(token, imageLMID)
     .catch(error => {
       console.log(error)
       return '{"error": "Failed to obtain nutritional information"}'
-    });*/
+    });
+  console.log(nutritionalInfoRaw)
+  //let nutritionalInfoRaw = JSON.parse(fs.readFileSync('response.json'));
+  const nutritionalInfo = parseNutritionalInfo(nutritionalInfoRaw);
+  fs.writeFile('/usr/src/usr_images/' + imageID + '.json', JSON.stringify(nutritionalInfo, null, 2), (error) => {if (error) {return;}});
 
-  let nutritionalInfoRaw = fs.readFileSync('response.json')
-  
-  return parseNutritionalInfo(nutritionalInfoRaw);
+  return nutritionalInfo;
 }
 
 //Parse raw data 
-const parseNutritionalInfo = function(nutritionalInfoRaw) {
-  nutritionalInfoJSON = JSON.parse(nutritionalInfoRaw);
+const parseNutritionalInfo = function(nutritionalInfoJSON) {
   foodItems = {};
   for (let i = 0; i < nutritionalInfoJSON.foodName.length; i++) {
     foodName = nutritionalInfoJSON.foodName[i];
@@ -86,8 +87,8 @@ const segmentateImage = async function(authToken, imgPath) { //TODO: COMPRESS IM
         resolve(response.data.imageId);
       })
       .catch(error => {
-        //console.log("ERROR: " + authToken)
-        console.error('Error:', error);
+        console.log("ERROR: " + authToken)
+        //console.error('Error:', error);
         reject(error);
       });
   });

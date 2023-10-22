@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log a Meal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .app-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button, input[type="submit"] {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        .button {
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app-container">
+    <h1>Log a Meal</h1>
+
+    <!-- Video element to show webcam feed -->
+    <video id="webcam" width="640" height="480" autoplay></video>
+
+    <form action="/submit_meal" method="post" enctype="multipart/form-data" id="mealForm">
+        <!-- Placeholder for capturing image data -->
+        <input type="hidden" id="capturedImage" name="capturedImage">
+        <!-- Feedback message after capturing -->
+        <span id="captureFeedback" style="display: none; color: green;">Image Captured!</span>
+
+        <button type="button" onclick="captureImage()">Capture Image</button>
+        <!-- Input to select image from computer -->
+        <input type="file" id="fileInput" name="uploadedImage">
+        <input type="submit" value="Submit" onclick="submitMealForm()">
+    </form>
+
+    <a href="WebApp.html" class="button">Back to Homepage</a>
+</div>
+
+<div id="foodTableContainer">
+    <table id="foodTable" border="1">
+        <thead>
+        <tr>
+            <th>Food Name</th>
+            <th>Calories</th>
+            <th>Protein (g)</th>
+            <th>Carbs (g)</th>
+            <th>Fat (g)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Table data will be populated here -->
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<script>
+    // Access the webcam stream
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            document.getElementById('webcam').srcObject = stream;
+        }).catch(function(error) {
+            console.error("Error accessing webcam:", error);
+        });
+    }
+
+    function captureImage() {
+        const videoElem = document.getElementById('webcam');
+        const canvas = document.createElement('canvas');
+        canvas.width = videoElem.videoWidth;
+        canvas.height = videoElem.videoHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(videoElem, 0, 0, videoElem.videoWidth, videoElem.videoHeight);
+        const imageDataUrl = canvas.toDataURL('image/jpeg', 0.9);
+
+        document.getElementById('capturedImage').value = imageDataUrl;
+
+        // Feedback after capturing
+        showCaptureFeedback("Image Captured!");
+    }
+
+    function showCaptureFeedback(message) {
+        const feedbackElem = document.getElementById('captureFeedback');
+        feedbackElem.textContent = message;
+        feedbackElem.style.display = "inline";
+        setTimeout(() => {
+            feedbackElem.style.display = "none";
+        }, 3000);
+    }
+
+    async function submitImage() {
+        showCaptureFeedback("Submitting...");
+
+        const imageDataUrl = document.getElementById('capturedImage').value;
+        const responseToBlob = await fetch(imageDataUrl);
+        const blob = await responseToBlob.blob();
+
+        const formData = new FormData();
+        formData.append("image", blob, "capturedImage.jpg");
+
+        try {
+            const response = await fetch('https://api.perfectportion.tech/post/image', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                const imageId = result.imageId;
+                const nutrientsResponse = await fetch(`https://api.perfectportion.tech/get/nutrients?imageId=${imageId}`);
+                if (nutrientsResponse.ok) {
+                    const nutrientsData = await nutrientsResponse.json();
+                    console.log(nutrientsData);
+                    showCaptureFeedback("Submitted Successfully!");
+                } else {
+                    showCaptureFeedback("Failed to fetch nutrients!");
+                }
+            } else {
+                showCaptureFeedback("Failed to post the image!");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            showCaptureFeedback("Submission Error!");
+        }
+    }
+
+    document.getElementById('mealForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const fileInput = document.getElementById('fileInput');
+        const capturedImageInput = document.getElementById('capturedImage');
+
+        if (!fileInput.files[0] && !capturedImageInput.value) {
+            alert('No image selected or captured.');
+            return;
+        }
+
+        if (capturedImageInput.value) {
+            submitImage();
+        }
+    });
+    // The JSON data you provided
+    const jsonData = {
+        "260": { /* ... */ },
+        "320": { /* ... */ },
+        "407": { /* ... */ },
+        // ... and so on for all other food items
+    };
+
+    // Function to populate the table with data
+    function populateTable(data) {
+        const tableBody = document.getElementById('foodTable').querySelector('tbody');
+
+        // Clear existing rows, if any
+        tableBody.innerHTML = '';
+
+        for (let key in data) {
+            const foodItem = data[key];
+
+            const newRow = tableBody.insertRow();
+            newRow.insertCell().textContent = foodItem.foodName;
+            newRow.insertCell().textContent = foodItem.info.calories.toFixed(2);
+            newRow.insertCell().textContent = foodItem.info.protein.quantity.toFixed(2);
+            newRow.insertCell().textContent = foodItem.info.carb.quantity.toFixed(2);
+            newRow.insertCell().textContent = foodItem.info.fat.quantity.toFixed(2);
+        }
+    }
+
+    // Call the function on page load
+    populateTable(jsonData);
+
+</script>
+
+
+
+</body>
+
+</html>
