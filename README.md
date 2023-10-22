@@ -1,3 +1,10 @@
+# PerfectPortion
+<img src="https://github.com/JMS1717/PerfectPortion/assets/43321848/bfa0c314-2d30-422d-97e8-64a801fe5fc7" width="500">
+
+
+
+# 
+A nutrition tracking app with an AI twist
 ## The Problem
 Current weight tracking apps make it tedious to enter food information and difficult to capture everything. There’s currently no solution for people who want a convenient way to log their food. One study of nearly 1,700 participants found that keeping a food diary can double your weight loss when you're trying to shed unwanted pounds. According to a 2017 survey, only 26 percent of those aged 18 to 29 years regularly use apps to track their diet and nutrition.
 
