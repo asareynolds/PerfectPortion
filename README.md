@@ -1,4 +1,5 @@
-# PerfectPortion
+# PerfectPortion![AppIcon](https://github.com/JMS1717/PerfectPortion/assets/43321848/f3012adf-80d6-43a3-a9a2-4f591e66bb4f)
+
 A nutrition tracking app with an AI twist
 
 ## The Problem
