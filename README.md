@@ -1,4 +1,5 @@
-# PerfectPortion![AppIcon](https://github.com/JMS1717/PerfectPortion/assets/43321848/f3012adf-80d6-43a3-a9a2-4f591e66bb4f)
+# PerfectPortion![Perfect Portion More Border](https://github.com/JMS1717/PerfectPortion/assets/43321848/5fae2e9f-ad36-46eb-bec9-2a60f9104456)
+
 
 A nutrition tracking app with an AI twist
 
