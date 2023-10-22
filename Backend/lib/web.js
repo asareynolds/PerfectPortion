@@ -1,7 +1,9 @@
 const express = require('express');
 var bodyParser = require('body-parser');
+const multer = require("multer");
 const cors = require('cors');
 var crypto = require("crypto");
+const fs = require("fs");
 const logmeal = require('./logmeal.js');
 
 const app = express();
@@ -14,33 +16,32 @@ app.listen(80, () => {
 app.set('trust proxy', true)
 
 //Takes in images, saves image as file on server, and returns image id
-app.post("/post/image",upload.single("file"), async(req, res) => {
+//Returns: {"result": "success","imageId": "8360fa57458e5f9a07564f96b9d51f792c004aee"}
+const upload = multer({ dest: '/usr/src/usr_images/tmp' });
+
+app.post("/post/image", upload.single('image'), async(req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    const tempPath = req.file.path;
+    if (!req.file) {
+        return res.status(400).send('No files were uploaded.');
+    }
+
+    console.log(req.file.path)
+
     const imageID = crypto.randomBytes(20).toString('hex');
-    const targetPath = path.join(__dirname, "/usr/src/usr_images/" + imageID + ".jpg");
+    const targetPath = "/usr/src/usr_images/" + imageID + ".jpg";
 
-    if (path.extname(req.file.originalname).toLowerCase() === ".jpg") {
-    fs.rename(tempPath, targetPath, err => {
-        if (err) return handleError(err, res);
-
+    // Renaming the file
+    fs.rename(req.file.path, targetPath, err => {
+        if (err) return res.status(500).send('Error uploading file');
         res.status(200).end(`{"result": "success","imageId": "${imageID}"}`);
     });
-    } else {
-    fs.unlink(tempPath, err => {
-        if (err) return handleError(err, res);
-
-        res.status(403).end('{"error":"Only .png files are allowed!"}');
-    });
-    }
 });
-app.post('/get/nutrients', async(req, res) => {
-    //const { user_username, user_email, user_pass, user_fname, user_lname } = req.body
+//Takes in imageID, returns nutritional information
+app.get('/get/nutrients', async(req, res) => {
+    const imageID = req.query.imageID
     res.setHeader('Content-Type', 'application/json');
-    var createUserResult = JSON.parse(await user.create(user_username, user_email, user_pass, user_fname, user_lname))
-    if (createUserResult.result == "error") return res.end(`{"result": "error","type": "${createUserResult.type}"}`);
-    email.sendVerification(createUserResult.uuid)
-    var createTokenResult = JSON.parse(await token.generate("standard", createUserResult.uuid, client_id, client_ip))
-    if (createTokenResult.result == "error") return res.end(`{"result": "error","type": "${createTokenResult.type}"}`);
-    res.end(`{"result": "success","uuid": "${createUserResult.uuid}","token": "${createTokenResult.token}"}`);
+    logmeal.getNutrients(imageID).then((nutrients) => {
+        res.status(200).end(nutrients);
+    });
+    //res.end(`{"result": "success","uuid": "${createUserResult.uuid}","token": "${createTokenResult.token}"}`);
 });
