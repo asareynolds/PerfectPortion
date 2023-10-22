@@ -30,5 +30,5 @@ struct MealLabelView: View {
 }
 
 #Preview {
-    MealLabelView(meal: Meal(id: "", imageData: (UIImage(systemName: "carrot")?.pngData().unsafelyUnwrapped).unsafelyUnwrapped, timestamp: .now, foods: [Food(id: 0, name: "Carrot", calories: 0, proteins: 0, carbs: 0, fat: 0)]))
+    MealDisplayView(meal: Meal(id: "", imageData: (UIImage(systemName: "carrot")?.pngData().unsafelyUnwrapped).unsafelyUnwrapped, timestamp: .now, foods: [Food(id: 0, name: "Carrot", calories: 0, proteins: 0, carbs: 0, fat: 0)], recommendation: "Generative AI Response"))
 }

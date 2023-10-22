@@ -79,7 +79,14 @@ struct AddMealView: View {
     var body: some View {
         NavigationStack {
             if isLoading {
-                ProgressView("Uploading your image")
+                ProgressView()
+                    .progressViewStyle(.circular)
+                
+                ProgressView(value: viewModel.uploadingValue) {
+                    Text(viewModel.uploadingString)
+                        .padding()
+                        .font(.callout)
+                }
             }
             else if cameraTapped {
                 CameraView(capturedImage: $capturedImage)
@@ -113,13 +120,20 @@ struct AddMealView: View {
                                 .scaledToFit()
                                 .frame(width: 80)
                                 .rotationEffect(Angle(degrees: -20))
-                                .offset(x: -10,y: -10)
+                                .offset(x: -10,y: -20)
                                 .opacity(0.8)
                             
                         }
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
-                        .background(LinearGradient(gradient: .init(colors: [.black, .white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .background(LinearGradient(
+                            gradient: Gradient(colors: [
+                                Color(red: 0.45, green: 0.88, blue: 0.40),
+                                Color(red: 0.40, green: 0.86, blue: 0.71)
+                            ]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ))
                         .cornerRadius(12)
                     }
                     .padding()

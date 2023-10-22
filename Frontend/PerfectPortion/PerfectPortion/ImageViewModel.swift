@@ -130,15 +130,18 @@ import PhotosUI
         return body
     }
     
+    private(set) var uploadingString: String = ""
+    private(set) var uploadingValue: Float = 0
+    
     func uploadImage() async throws -> Meal? {
-        guard case .finished(let image) = self.attachments.first?.imageStatus else {
-           return nil
-        }
-        
-        guard let imageData = image.jpegData(compressionQuality: 0.3) else {
-            throw NSError(domain: "ImageUploadError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to data."])
+        guard case .finished(let image) = self.attachments.first?.imageStatus, let imageData = image.jpegData(compressionQuality: 0.15) else {
+            uploadingString = "Failed to get the image to upload!"
+            return nil
         }
     
+        uploadingString = "Proccesing your image"
+        uploadingValue = 0.2
+        
         // Create the request
         let url = URL(string: "https://api.perfectportion.tech/post/image")!
         var request = URLRequest(url: url)
@@ -158,6 +161,9 @@ import PhotosUI
         let decodedResponse = try decoder.decode(ImageUploadResponse.self, from: data)
     
         let imageID = decodedResponse.imageId
+        
+        uploadingString = "Getting the nutrient information"
+        uploadingValue = 0.6
     
         let foodDetails = try await URLSession.shared.data(from:  URL(string: "https://api.perfectportion.tech/get/nutrients?imageID=\(imageID)").unsafelyUnwrapped).0
     
@@ -166,11 +172,28 @@ import PhotosUI
         
         for (id , details) in foodItems {
             let foodInfo = details.info
-            let foodToAdd = Food(id: id, name: details.foodName, calories: Int(foodInfo.calories), proteins: Int(foodInfo.protein.quantity), carbs: Int(foodInfo.carb.quantity), fat: Int(foodInfo.fat.quantity))
+            let foodToAdd = Food(id: id, name: details.foodName.capitalized, calories: Int(foodInfo.calories), proteins: Int(foodInfo.protein.quantity), carbs: Int(foodInfo.carb.quantity), fat: Int(foodInfo.fat.quantity))
             foodsToAdd.append(foodToAdd)
         }
         
-        let meal = Meal(id: imageID, imageData: imageData, timestamp: .now, foods: foodsToAdd)
+        let defaults = UserDefaults.standard
+        let height = defaults.string(forKey: "height") ?? "70"
+        let weight = defaults.string(forKey: "weight") ?? "150"
+        let age = defaults.string(forKey: "age") ?? "20"
+        let gender = defaults.string(forKey: "gender") ?? "male"
+        let allergies = defaults.string(forKey: "allergies") ?? ""
+        
+        uploadingString = "Getting Generative API response"
+        uploadingValue = 0.80
+        
+        let generationAPI = URL(string:"https://api.perfectportion.tech/get/recommendation?imageID=\(imageID)&weight=\(weight)&height=\(height)&age=\(age)&gender=\(gender)&allergies=\(allergies)").unsafelyUnwrapped
+        
+        let generatedResponse = try await URLSession.shared.data(from: generationAPI).0
+        uploadingValue = 0.99
+        
+        let responseString = String(data: generatedResponse, encoding: .utf8) ?? "No Generative AI Response"
+        
+        let meal = Meal(id: imageID, imageData: imageData, timestamp: .now, foods: foodsToAdd, recommendation: responseString)
         return meal
     }
 }
