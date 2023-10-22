@@ -16,7 +16,7 @@ const getNutrients = async function(imageID) {
   console.log("Using Token: " + token)
   const imgPath = '/usr/src/usr_images/' + imageID + '.jpg';
   console.log("Using Image: " + imgPath)
-  /*const imageLMID = await segmentateImage(token, imgPath)
+  const imageLMID = await segmentateImage(token, imgPath)
     .catch(error => {
       console.log(error)
       return '{"error": "Failed to segmentate image"}'
@@ -26,8 +26,8 @@ const getNutrients = async function(imageID) {
       console.log(error)
       return '{"error": "Failed to obtain nutritional information"}'
     });
-  console.log(nutritionalInfoRaw)*/
-  let nutritionalInfoRaw = JSON.parse(fs.readFileSync('response.json'));
+  console.log(nutritionalInfoRaw)
+  //let nutritionalInfoRaw = JSON.parse(fs.readFileSync('response.json'));
   const nutritionalInfo = parseNutritionalInfo(nutritionalInfoRaw);
   fs.writeFile('/usr/src/usr_images/' + imageID + '.json', JSON.stringify(nutritionalInfo, null, 2), (error) => {if (error) {return;}});
 
