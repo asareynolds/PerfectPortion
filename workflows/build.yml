@@ -14,10 +14,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set Xcode version
-      run: sudo xcode-select -switch /Applications/Xcode_13.1.app # Change the Xcode version if needed
+      run: sudo xcode-select -switch /Applications/Xcode_15.0.app # Change the Xcode version if needed
 
     - name: Build Xcode Project
-      run: xcodebuild -project YourProjectName.xcodeproj -scheme YourSchemeName build
+      run: xcodebuild -project PerfectPortion.xcodeproj -scheme PerfectPortion build
 
     # If you're using a workspace instead of a project, you can use the following:
     # run: xcodebuild -workspace YourWorkspaceName.xcworkspace -scheme YourSchemeName build
