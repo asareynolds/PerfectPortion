@@ -1,0 +1,23 @@
+name: Build Xcode Project
+
+on:
+  push:
+    branches:
+      - main # or the name of your default branch
+
+jobs:
+  build:
+    name: Build
+    runs-on: macOS-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set Xcode version
+      run: sudo xcode-select -switch /Applications/Xcode_13.1.app # Change the Xcode version if needed
+
+    - name: Build Xcode Project
+      run: xcodebuild -project YourProjectName.xcodeproj -scheme YourSchemeName build
+
+    # If you're using a workspace instead of a project, you can use the following:
+    # run: xcodebuild -workspace YourWorkspaceName.xcworkspace -scheme YourSchemeName build
