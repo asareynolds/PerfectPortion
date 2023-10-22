@@ -1,4 +1,6 @@
-# PerfectPortion![Perfect Portion More Border](https://github.com/JMS1717/PerfectPortion/assets/43321848/5fae2e9f-ad36-46eb-bec9-2a60f9104456)
+# PerfectPortion
+![Perfect Portion More Border-modified](https://github.com/JMS1717/PerfectPortion/assets/43321848/bfa0c314-2d30-422d-97e8-64a801fe5fc7)
+
 
 
 A nutrition tracking app with an AI twist
