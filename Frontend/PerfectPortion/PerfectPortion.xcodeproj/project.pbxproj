@@ -1,0 +1,367 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		944076262AE56833004FC291 /* MealLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944076252AE56833004FC291 /* MealLabelView.swift */; };
+		944076282AE56A8F004FC291 /* MealDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944076272AE56A8F004FC291 /* MealDisplayView.swift */; };
+		948ECCCD2AE4622200A4ADDD /* PerfectPortionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948ECCCC2AE4622200A4ADDD /* PerfectPortionApp.swift */; };
+		948ECCCF2AE4622200A4ADDD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948ECCCE2AE4622200A4ADDD /* HomeView.swift */; };
+		948ECCD12AE4622200A4ADDD /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948ECCD02AE4622200A4ADDD /* Meal.swift */; };
+		948ECCD32AE4622300A4ADDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 948ECCD22AE4622300A4ADDD /* Assets.xcassets */; };
+		948ECCDD2AE4722B00A4ADDD /* AddMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948ECCDC2AE4722B00A4ADDD /* AddMealView.swift */; };
+		948ECCDF2AE474E100A4ADDD /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948ECCDE2AE474E100A4ADDD /* ImageViewModel.swift */; };
+		94C35E932AE4B79300751BF4 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C35E922AE4B79300751BF4 /* CameraView.swift */; };
+		94C35E952AE4B87000751BF4 /* FoodStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C35E942AE4B87000751BF4 /* FoodStructures.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		944076252AE56833004FC291 /* MealLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealLabelView.swift; sourceTree = "<group>"; };
+		944076272AE56A8F004FC291 /* MealDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDisplayView.swift; sourceTree = "<group>"; };
+		948ECCC92AE4622200A4ADDD /* PerfectPortion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectPortion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		948ECCCC2AE4622200A4ADDD /* PerfectPortionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectPortionApp.swift; sourceTree = "<group>"; };
+		948ECCCE2AE4622200A4ADDD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		948ECCD02AE4622200A4ADDD /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		948ECCD22AE4622300A4ADDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		948ECCDC2AE4722B00A4ADDD /* AddMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealView.swift; sourceTree = "<group>"; };
+		948ECCDE2AE474E100A4ADDD /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		94C35E922AE4B79300751BF4 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		94C35E942AE4B87000751BF4 /* FoodStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStructures.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		948ECCC62AE4622200A4ADDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		948ECCC02AE4622200A4ADDD = {
+			isa = PBXGroup;
+			children = (
+				948ECCCB2AE4622200A4ADDD /* PerfectPortion */,
+				948ECCCA2AE4622200A4ADDD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		948ECCCA2AE4622200A4ADDD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				948ECCC92AE4622200A4ADDD /* PerfectPortion.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		948ECCCB2AE4622200A4ADDD /* PerfectPortion */ = {
+			isa = PBXGroup;
+			children = (
+				948ECCCC2AE4622200A4ADDD /* PerfectPortionApp.swift */,
+				948ECCDC2AE4722B00A4ADDD /* AddMealView.swift */,
+				944076252AE56833004FC291 /* MealLabelView.swift */,
+				94C35E942AE4B87000751BF4 /* FoodStructures.swift */,
+				948ECCDE2AE474E100A4ADDD /* ImageViewModel.swift */,
+				94C35E922AE4B79300751BF4 /* CameraView.swift */,
+				948ECCCE2AE4622200A4ADDD /* HomeView.swift */,
+				944076272AE56A8F004FC291 /* MealDisplayView.swift */,
+				948ECCD02AE4622200A4ADDD /* Meal.swift */,
+				948ECCD22AE4622300A4ADDD /* Assets.xcassets */,
+			);
+			path = PerfectPortion;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		948ECCC82AE4622200A4ADDD /* PerfectPortion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 948ECCD92AE4622300A4ADDD /* Build configuration list for PBXNativeTarget "PerfectPortion" */;
+			buildPhases = (
+				948ECCC52AE4622200A4ADDD /* Sources */,
+				948ECCC62AE4622200A4ADDD /* Frameworks */,
+				948ECCC72AE4622200A4ADDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PerfectPortion;
+			productName = PerfectPortion;
+			productReference = 948ECCC92AE4622200A4ADDD /* PerfectPortion.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		948ECCC12AE4622200A4ADDD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					948ECCC82AE4622200A4ADDD = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 948ECCC42AE4622200A4ADDD /* Build configuration list for PBXProject "PerfectPortion" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 948ECCC02AE4622200A4ADDD;
+			productRefGroup = 948ECCCA2AE4622200A4ADDD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				948ECCC82AE4622200A4ADDD /* PerfectPortion */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		948ECCC72AE4622200A4ADDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				948ECCD32AE4622300A4ADDD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		948ECCC52AE4622200A4ADDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				944076262AE56833004FC291 /* MealLabelView.swift in Sources */,
+				948ECCDD2AE4722B00A4ADDD /* AddMealView.swift in Sources */,
+				948ECCDF2AE474E100A4ADDD /* ImageViewModel.swift in Sources */,
+				94C35E952AE4B87000751BF4 /* FoodStructures.swift in Sources */,
+				948ECCCF2AE4622200A4ADDD /* HomeView.swift in Sources */,
+				944076282AE56A8F004FC291 /* MealDisplayView.swift in Sources */,
+				94C35E932AE4B79300751BF4 /* CameraView.swift in Sources */,
+				948ECCD12AE4622200A4ADDD /* Meal.swift in Sources */,
+				948ECCCD2AE4622200A4ADDD /* PerfectPortionApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		948ECCD72AE4622300A4ADDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		948ECCD82AE4622300A4ADDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		948ECCDA2AE4622300A4ADDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = YQ88248YH4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera to take photos.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.ryannair05.PerfectPortion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		948ECCDB2AE4622300A4ADDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = YQ88248YH4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera to take photos.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.ryannair05.PerfectPortion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		948ECCC42AE4622200A4ADDD /* Build configuration list for PBXProject "PerfectPortion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				948ECCD72AE4622300A4ADDD /* Debug */,
+				948ECCD82AE4622300A4ADDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		948ECCD92AE4622300A4ADDD /* Build configuration list for PBXNativeTarget "PerfectPortion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				948ECCDA2AE4622300A4ADDD /* Debug */,
+				948ECCDB2AE4622300A4ADDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 948ECCC12AE4622200A4ADDD /* Project object */;
+}
