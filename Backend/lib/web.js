@@ -43,5 +43,12 @@ app.get('/get/nutrients', async(req, res) => {
     logmeal.getNutrients(imageID).then((nutrients) => {
         res.status(200).end(nutrients);
     });
-    //res.end(`{"result": "success","uuid": "${createUserResult.uuid}","token": "${createTokenResult.token}"}`);
+});
+//Takes in imageID & nutritional info, returns nutritional information
+app.get('/get/nutrients', async(req, res) => {
+    const imageID = req.query.imageID
+    res.setHeader('Content-Type', 'application/json');
+    logmeal.getNutrients(imageID).then((nutrients) => {
+        res.status(200).end(nutrients);
+    });
 });
